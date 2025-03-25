@@ -1,5 +1,20 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 1;
+  padding: 2rem;
+  margin-top: 80px; /* To account for the fixed navbar */
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #333;
+  background-color: #f9f9f9;
 }
 
 .App-logo {
