@@ -533,10 +533,73 @@ $white: #ffffff;
     }
   }
 
-  .about-content,
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .about-section {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+
+      .about-image {
+        order: 1;
+        margin-bottom: 2rem;
+        max-width: 100%;
+        padding: 0 1rem;
+
+        img {
+          width: 100%;
+          max-width: 500px;
+          margin: 0 auto;
+          display: block;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .about-text {
+        order: 2;
+        padding: 0 1rem;
+
+        p {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+        }
+
+        .bakery-features {
+          margin-bottom: 2rem;
+
+          .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: $text-color;
+            font-size: 1rem;
+
+            .feature-icon {
+              color: $primary-color;
+              font-size: 1.5rem;
+              margin-right: 1rem;
+              width: 24px;
+              height: 24px;
+            }
+
+            span {
+              line-height: 1.4;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        .learn-more {
+          display: inline-block;
+          margin-top: 1rem;
+        }
+      }
+    }
   }
 
   .offers-grid,

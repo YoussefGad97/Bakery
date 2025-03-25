@@ -42,9 +42,9 @@ const Navbar = () => {
           <span className="logo-text"></span>
         </Link>
         
-        <div className="menu-icon" onClick={toggleMenu}>
-          <i className={isOpen ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
+        <button className="menu-icon" onClick={toggleMenu} aria-label="Toggle menu">
+          <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'}`}></i>
+        </button>
 
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           {navLinks.map((link) => (
