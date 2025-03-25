@@ -220,53 +220,85 @@ $white: #ffffff;
 .gallery-section {
   @include section-padding;
   background-color: $light-bg;
+  position: relative;
   overflow: hidden;
 
-  .gallery-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 3rem;
-    padding: 2rem 0;
-    background: linear-gradient(to right, 
-      rgba(249, 246, 242, 1) 0%,
-      rgba(249, 246, 242, 0) 5%,
-      rgba(249, 246, 242, 0) 95%,
-      rgba(249, 246, 242, 1) 100%
-    );
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../assets/images/countertop.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
   }
 
-  .gallery-track {
-    display: flex;
+  .gallery-container {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 3rem;
+    min-height: 400px;
+    padding: 2rem;
+    background: rgba(249, 246, 242, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    animation: conveyor-belt 30s linear infinite;
-    width: fit-content;
+    position: relative;
+    padding: 2rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    transform-origin: center;
+    z-index: 1;
 
     &:hover {
-      animation-play-state: paused;
+      transform: scale(1.05) rotate(0deg) !important;
+      z-index: 2;
     }
 
-    .gallery-item {
-      flex: 0 0 300px;
-      position: relative;
-      overflow: hidden;
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border: 8px solid $white;
+      transition: all 0.3s ease;
+    }
 
-      &:hover {
-        transform: translateY(-10px);
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      padding: 1rem;
+      border-radius: 0 0 10px 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      span {
+        color: $white;
+        font-size: 1.1rem;
+        font-weight: 600;
       }
+    }
 
-      img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      &:hover img {
-        transform: scale(1.1);
+    &:hover {
+      .gallery-item-overlay {
+        opacity: 1;
       }
     }
   }
@@ -285,6 +317,7 @@ $white: #ffffff;
     box-shadow: 0 4px 15px rgba(142, 119, 84, 0.2);
     position: relative;
     overflow: hidden;
+    z-index: 2;
 
     &::before {
       content: '';
@@ -491,6 +524,18 @@ $white: #ffffff;
   .blog-grid {
     grid-template-columns: 1fr;
   }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .gallery-item {
+    img {
+      height: 250px;
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -506,7 +551,13 @@ $white: #ffffff;
     font-size: 2rem;
   }
 
-  .gallery-container {
-    padding: 1rem 0;
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    img {
+      height: 300px;
+    }
   }
 }

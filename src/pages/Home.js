@@ -97,26 +97,24 @@ const Home = () => {
         <div className="container">
           <h2>Our Gallery</h2>
           <div className="gallery-container">
-            <div className="gallery-track">
-              {/* First set of images */}
-              <div className="gallery-item">
+            <div className="gallery-grid">
+              <div className="gallery-item" style={{ transform: 'rotate(-5deg) translate(20px, 10px)' }}>
                 <img src={gallery1} alt="Gallery Item 1" />
+                <div className="gallery-item-overlay">
+                  <span>Fresh Breads</span>
+                </div>
               </div>
-              <div className="gallery-item">
+              <div className="gallery-item" style={{ transform: 'rotate(3deg) translate(-15px, -20px)' }}>
                 <img src={gallery2} alt="Gallery Item 2" />
+                <div className="gallery-item-overlay">
+                  <span>Sweet Pastries</span>
+                </div>
               </div>
-              <div className="gallery-item">
+              <div className="gallery-item" style={{ transform: 'rotate(-2deg) translate(10px, -15px)' }}>
                 <img src={gallery3} alt="Gallery Item 3" />
-              </div>
-              {/* Duplicate set for seamless loop */}
-              <div className="gallery-item">
-                <img src={gallery1} alt="Gallery Item 1" />
-              </div>
-              <div className="gallery-item">
-                <img src={gallery2} alt="Gallery Item 2" />
-              </div>
-              <div className="gallery-item">
-                <img src={gallery3} alt="Gallery Item 3" />
+                <div className="gallery-item-overlay">
+                  <span>Custom Cakes</span>
+                </div>
               </div>
             </div>
           </div>
