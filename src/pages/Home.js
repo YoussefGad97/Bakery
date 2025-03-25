@@ -9,6 +9,8 @@ import { GiBread, GiCakeSlice, GiCupcake, GiCoffeeCup } from "react-icons/gi";
 import gallery1 from "../assets/images/back1.jpg";
 import gallery2 from "../assets/images/back2.jpg";
 import gallery3 from "../assets/images/back4.jpg";
+import blog1 from "../assets/images/Blog1.jpg";
+import blog2 from "../assets/images/Blog2.jpg";
 
 const Home = () => {
   return (
@@ -98,22 +100,58 @@ const Home = () => {
           <h2>Our Gallery</h2>
           <div className="gallery-container">
             <div className="gallery-grid">
-              <div className="gallery-item" style={{ transform: 'rotate(-5deg) translate(20px, 10px)' }}>
+              <div
+                className="gallery-item"
+                style={{ transform: "rotate(-5deg) translate(20px, 10px)" }}
+              >
                 <img src={gallery1} alt="Gallery Item 1" />
                 <div className="gallery-item-overlay">
                   <span>Fresh Breads</span>
                 </div>
               </div>
-              <div className="gallery-item" style={{ transform: 'rotate(3deg) translate(-15px, -20px)' }}>
+              <div
+                className="gallery-item"
+                style={{ transform: "rotate(3deg) translate(-15px, -20px)" }}
+              >
                 <img src={gallery2} alt="Gallery Item 2" />
                 <div className="gallery-item-overlay">
                   <span>Sweet Pastries</span>
                 </div>
               </div>
-              <div className="gallery-item" style={{ transform: 'rotate(-2deg) translate(10px, -15px)' }}>
+              <div
+                className="gallery-item"
+                style={{ transform: "rotate(-2deg) translate(10px, -15px)" }}
+              >
                 <img src={gallery3} alt="Gallery Item 3" />
                 <div className="gallery-item-overlay">
                   <span>Custom Cakes</span>
+                </div>
+              </div>
+              <div
+                className="gallery-item"
+                style={{ transform: "rotate(4deg) translate(-25px, 15px)" }}
+              >
+                <img src={gallery1} alt="Gallery Item 4" />
+                <div className="gallery-item-overlay">
+                  <span>Artisan Loaves</span>
+                </div>
+              </div>
+              <div
+                className="gallery-item"
+                style={{ transform: "rotate(-3deg) translate(15px, -25px)" }}
+              >
+                <img src={gallery2} alt="Gallery Item 5" />
+                <div className="gallery-item-overlay">
+                  <span>Fresh Croissants</span>
+                </div>
+              </div>
+              <div
+                className="gallery-item"
+                style={{ transform: "rotate(2deg) translate(-20px, 20px)" }}
+              >
+                <img src={gallery3} alt="Gallery Item 6" />
+                <div className="gallery-item-overlay">
+                  <span>Wedding Cakes</span>
                 </div>
               </div>
             </div>
@@ -130,7 +168,7 @@ const Home = () => {
           <h2>Latest from Our Blog</h2>
           <div className="blog-grid">
             <article className="blog-card">
-              <img src="/images/blog-1.jpg" alt="Blog Post 1" />
+              <img src={blog2} alt="Blog Post 1" />
               <div className="blog-content">
                 <h3>Baking Tips & Tricks</h3>
                 <p>Learn the secrets of perfect baking</p>
@@ -140,7 +178,7 @@ const Home = () => {
               </div>
             </article>
             <article className="blog-card">
-              <img src="/images/blog-2.jpg" alt="Blog Post 2" />
+              <img src={blog1} alt="Blog Post 2" />
               <div className="blog-content">
                 <h3>Seasonal Specials</h3>
                 <p>Discover our seasonal favorites</p>

@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import navLogo from "../assets/images/bakery-light-1.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const isScrollingDown = prevScrollPos < currentScrollPos;
+
+      setVisible(!isScrollingDown);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -19,10 +35,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${visible ? 'visible' : 'hidden'}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          Bakery
+          <img src={navLogo} alt="Bakery Logo" className="logo-image" />
+          <span className="logo-text"></span>
         </Link>
         
         <div className="menu-icon" onClick={toggleMenu}>
