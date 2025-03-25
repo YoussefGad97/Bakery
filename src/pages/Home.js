@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Home.scss";
+import aboutImg from "../assets/images/back1.jpg";
+import offer1 from "../assets/images/back2.jpg";
+import offer2 from "../assets/images/back4.jpg";
+import offer3 from "../assets/images/Cake.jpg";
+import { GiBread, GiCakeSlice, GiCupcake, GiCoffeeCup } from "react-icons/gi";
+import gallery1 from "../assets/images/back1.jpg";
+import gallery2 from "../assets/images/back2.jpg";
+import gallery3 from "../assets/images/back4.jpg";
 
 const Home = () => {
   return (
@@ -23,7 +31,7 @@ const Home = () => {
           <h2>About Us</h2>
           <div className="about-content">
             <div className="about-image">
-              <img src="/images/about-bakery.jpg" alt="Our Bakery" />
+              <img src={aboutImg} alt="Our Bakery" />
             </div>
             <div className="about-text">
               <p>
@@ -31,6 +39,24 @@ const Home = () => {
                 bring joy to your day. Our recipes have been perfected over
                 generations, using only the finest ingredients.
               </p>
+              <div className="bakery-features">
+                <div className="feature-item">
+                  <GiBread className="feature-icon" />
+                  <span>Freshly baked breads daily</span>
+                </div>
+                <div className="feature-item">
+                  <GiCakeSlice className="feature-icon" />
+                  <span>Handcrafted pastries</span>
+                </div>
+                <div className="feature-item">
+                  <GiCupcake className="feature-icon" />
+                  <span>Custom celebration cakes</span>
+                </div>
+                <div className="feature-item">
+                  <GiCoffeeCup className="feature-icon" />
+                  <span>Perfect coffee pairings</span>
+                </div>
+              </div>
               <Link to="/about" className="learn-more">
                 Learn More
               </Link>
@@ -45,17 +71,17 @@ const Home = () => {
           <h2>Our Special Offers</h2>
           <div className="offers-grid">
             <div className="offer-card">
-              <img src="/images/bread.jpg" alt="Fresh Bread" />
+              <img src={offer1} alt="Fresh Bread" />
               <h3>Fresh Bread</h3>
               <p>Daily baked artisan breads</p>
             </div>
             <div className="offer-card">
-              <img src="/images/pastries.jpg" alt="Pastries" />
+              <img src={offer2} alt="Pastries" />
               <h3>Pastries</h3>
               <p>Sweet and savory delights</p>
             </div>
             <div className="offer-card">
-              <img src="/images/cakes.jpg" alt="Cakes" />
+              <img src={offer3} alt="Cakes" />
               <h3>Cakes</h3>
               <p>Custom and celebration cakes</p>
             </div>
@@ -70,15 +96,28 @@ const Home = () => {
       <section id="gallery" className="gallery-section">
         <div className="container">
           <h2>Our Gallery</h2>
-          <div className="gallery-grid">
-            <div className="gallery-item">
-              <img src="/images/gallery-1.jpg" alt="Gallery Item 1" />
-            </div>
-            <div className="gallery-item">
-              <img src="/images/gallery-2.jpg" alt="Gallery Item 2" />
-            </div>
-            <div className="gallery-item">
-              <img src="/images/gallery-3.jpg" alt="Gallery Item 3" />
+          <div className="gallery-container">
+            <div className="gallery-track">
+              {/* First set of images */}
+              <div className="gallery-item">
+                <img src={gallery1} alt="Gallery Item 1" />
+              </div>
+              <div className="gallery-item">
+                <img src={gallery2} alt="Gallery Item 2" />
+              </div>
+              <div className="gallery-item">
+                <img src={gallery3} alt="Gallery Item 3" />
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="gallery-item">
+                <img src={gallery1} alt="Gallery Item 1" />
+              </div>
+              <div className="gallery-item">
+                <img src={gallery2} alt="Gallery Item 2" />
+              </div>
+              <div className="gallery-item">
+                <img src={gallery3} alt="Gallery Item 3" />
+              </div>
             </div>
           </div>
           <Link to="/gallery" className="view-all">
