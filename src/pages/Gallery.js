@@ -5,12 +5,9 @@ import baguette from "../assets/images/baguette.jpg";
 import chocolatecake from "../assets/images/ChocolateCake.jpg";
 import muffin from "../assets/images/Muffin.png";
 import sourdough from "../assets/images/Sourdough.jpg";
-import cupkae from "../assets/images/Cupcake.png";
-import donut from "../assets/images/Donut.jpg";
 import eclair from "../assets/images/Eclair.jpeg";
 import pretzel from "../assets/images/Pretzel.jpg";
 import cheesecake from "../assets/images/Cheesecake.jpeg";
-import headerImage from "../assets/images/back4.jpg";
 
 const Gallery = () => {
   const [filter, setFilter] = useState("all");
