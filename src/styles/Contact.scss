@@ -1,0 +1,96 @@
+.contact-page {
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 2rem;
+  background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../assets//images/back5.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  .page-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        font-size: 1rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+
+        &:focus {
+          outline: none;
+          border-color: #c67b4a;
+        }
+      }
+
+      textarea {
+        height: 150px;
+        resize: vertical;
+      }
+    }
+
+    .submit-btn {
+      background: #c67b4a;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #a5663d;
+      }
+    }
+  }
+
+  .map-container {
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
