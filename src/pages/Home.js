@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Home.scss";
 import aboutImg from "../assets/images/back1.jpg";
@@ -13,6 +13,25 @@ import blog1 from "../assets/images/Blog1.jpg";
 import blog2 from "../assets/images/Blog2.jpg";
 
 const Home = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % galleryItems.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
+  };
+
+  const galleryItems = [
+    { image: gallery1, title: "Fresh Breads" },
+    { image: gallery2, title: "Sweet Pastries" },
+    { image: gallery3, title: "Custom Cakes" },
+    { image: gallery1, title: "Artisan Loaves" },
+    { image: gallery2, title: "Fresh Croissants" },
+    { image: gallery3, title: "Wedding Cakes" }
+  ];
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -100,65 +119,40 @@ const Home = () => {
           <h2>Our Gallery</h2>
           <div className="gallery-container">
             <div className="gallery-grid">
-              <div
-                className="gallery-item"
-                style={{ transform: "rotate(-5deg) translate(20px, 10px)" }}
-              >
-                <img src={gallery1} alt="Gallery Item 1" />
-                <div className="gallery-item-overlay">
-                  <span>Fresh Breads</span>
+              {galleryItems.map((item, index) => (
+                <div
+                  key={index}
+                  className={`gallery-item slide-${activeIndex}`}
+                  style={{ transform: `rotate(${index % 2 === 0 ? '-' : ''}${(index % 3) + 1}deg) translate(${index % 2 === 0 ? '' : '-'}${(index % 3) * 10}px, ${(index % 3) * 5}px)` }}
+                >
+                  <img src={item.image} alt={`Gallery Item ${index + 1}`} />
+                  <div className="gallery-item-overlay">
+                    <span>{item.title}</span>
+                  </div>
                 </div>
-              </div>
-              <div
-                className="gallery-item"
-                style={{ transform: "rotate(3deg) translate(-15px, -20px)" }}
-              >
-                <img src={gallery2} alt="Gallery Item 2" />
-                <div className="gallery-item-overlay">
-                  <span>Sweet Pastries</span>
-                </div>
-              </div>
-              <div
-                className="gallery-item"
-                style={{ transform: "rotate(-2deg) translate(10px, -15px)" }}
-              >
-                <img src={gallery3} alt="Gallery Item 3" />
-                <div className="gallery-item-overlay">
-                  <span>Custom Cakes</span>
-                </div>
-              </div>
-              <div
-                className="gallery-item"
-                style={{ transform: "rotate(4deg) translate(-25px, 15px)" }}
-              >
-                <img src={gallery1} alt="Gallery Item 4" />
-                <div className="gallery-item-overlay">
-                  <span>Artisan Loaves</span>
-                </div>
-              </div>
-              <div
-                className="gallery-item"
-                style={{ transform: "rotate(-3deg) translate(15px, -25px)" }}
-              >
-                <img src={gallery2} alt="Gallery Item 5" />
-                <div className="gallery-item-overlay">
-                  <span>Fresh Croissants</span>
-                </div>
-              </div>
-              <div
-                className="gallery-item"
-                style={{ transform: "rotate(2deg) translate(-20px, 20px)" }}
-              >
-                <img src={gallery3} alt="Gallery Item 6" />
-                <div className="gallery-item-overlay">
-                  <span>Wedding Cakes</span>
-                </div>
-              </div>
+              ))}
             </div>
+            <div className="mobile-carousel-controls">
+              <button onClick={handlePrev} className="carousel-prev" disabled={activeIndex === 0}>
+                &lt;
+              </button>
+              <div className="carousel-indicators">
+                {galleryItems.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`indicator ${index === activeIndex ? 'active' : ''}`}
+                    onClick={() => setActiveIndex(index)}
+                  />
+                ))}
+              </div>
+              <button onClick={handleNext} className="carousel-next" disabled={activeIndex === galleryItems.length - 1}>
+                &gt;
+              </button>
+            </div>
+            <Link to="/gallery" className="view-all">
+              View Full Gallery
+            </Link>
           </div>
-          <Link to="/gallery" className="view-all">
-            View Full Gallery
-          </Link>
         </div>
       </section>
 
