@@ -10,6 +10,7 @@ import donut from "../assets/images/Donut.jpg";
 import eclair from "../assets/images/Eclair.jpeg";
 import pretzel from "../assets/images/Pretzel.jpg";
 import cheesecake from "../assets/images/Cheesecake.jpeg";
+import headerImage from "../assets/images/back4.jpg";
 
 const Offers = () => {
   const packages = [
@@ -51,7 +52,9 @@ const Offers = () => {
 
   return (
     <div className="offers-page">
-      <h1>Our Special Offers</h1>
+      <div className="header-section" style={{ backgroundImage: `url(${headerImage})` }}>
+        <h1>Our Special Offers</h1>
+      </div>
       <p className="page-description">
         Discover our best deals and packages, crafted with love and quality
         ingredients
